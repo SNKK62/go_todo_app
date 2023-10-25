@@ -3,7 +3,7 @@
 
 DOCKER_TAG := latest
 build: ## Build docker image to deploy
-		docker build -t SNKK62/gotodo:${DOCKER_TAG} \
+		docker build -t snkk62/gotodo:${DOCKER_TAG} \
 			--target deploy ./
 
 build-local: ## Build docker image to local development
