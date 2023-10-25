@@ -28,11 +28,11 @@ func (s *Server) Run(ctx context.Context) error {
 	ctx, stop := signal.NotifyContext(ctx, os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	eg, ctx := errgroup.WithContext(ctx)
-	//launch HTTP server in another Goroutine
+	// launch HTTP server in another Goroutine
 	eg.Go(func() error {
 		// replace ListernAndServe with Serve
 		if err := s.srv.Serve(s.l); err != nil &&
-			//http.ErrServerClosed is not an error, but is signal for terminating http.Server.Shutdown() normally
+			// http.ErrServerClosed is not an error, but is signal for terminating http.Server.Shutdown() normally
 			err != http.ErrServerClosed {
 			log.Printf("failed to close: %+v", err)
 			return err
@@ -45,6 +45,6 @@ func (s *Server) Run(ctx context.Context) error {
 	if err := s.srv.Shutdown(context.Background()); err != nil {
 		log.Printf("failed to shutdown: %+v", err)
 	}
-	//waiting for end of another Goroutine with Go method.
+	// waiting for end of another Goroutine with Go method.
 	return eg.Wait()
 }
