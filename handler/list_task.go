@@ -25,7 +25,8 @@ func (lt *ListTask) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		rsp = append(rsp, task{
 			ID:     t.ID,
 			Title:  t.Title,
-			Status: t.Status})
+			Status: t.Status,
+		})
 	}
 	RespondJSON(ctx, w, rsp, http.StatusOK)
 }
