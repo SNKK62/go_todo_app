@@ -13,6 +13,7 @@ import (
 )
 
 func TestRepository_ListTasks(t *testing.T) {
+	t.Parallel()
 	ctx := context.Background()
 	// when this is mixed with other test case creating entity.Task, it will fail
 	// so make this table only in this case with transaction

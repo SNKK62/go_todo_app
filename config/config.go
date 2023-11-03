@@ -11,7 +11,7 @@ type Config struct {
 	DBPort     int    `env:"TODO_DB_PORT" envDefault:"33306"`
 	DBUser     string `env:"TODO_DB_USER" envDefault:"todo"`
 	DBPassword string `env:"TODO_DB_PASSWORD" envDefault:"todo"`
-	DBName     string `env:"TODO_DB_NAME" envDEfault:"todo"`
+	DBName     string `env:"TODO_DB_NAME" envDefault:"todo"`
 }
 
 func New() (*Config, error) {
