@@ -44,5 +44,4 @@ func (ru *RegisterUser) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		ID entity.UserID `json:"id"`
 	}{ID: u.ID}
 	RespondJSON(ctx, w, rsp, http.StatusOK)
-
 }
